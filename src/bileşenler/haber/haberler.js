@@ -115,3 +115,108 @@ const data = [
   Adım 5: Veri dizisine yeni haber nesnesi eklemeyi deneyin. Diğer verilerle aynı yapıda olmasına dikkat edin.
   Eklediğiniz yeni haberi görmek için sayfayı yenileyin.
 */
+
+/**
+ * 
+ * @param {*} product 
+ * @returns Container DOM Object
+ */
+
+const haberYapici = (product) => {
+  
+  const container = document.createElement('div');
+  container.className = 'article';
+
+  const header = document.createElement('h2');
+  header.textContent = product.baslik;
+  container.append(header);
+
+  const p1 = document.createElement('p');
+  p1.classList.add('tarih');
+  p1.textContent=product.ilkParagraf;
+  container.append(p1);
+
+  const p2 = document.createElement('p');
+  p2.classList.add('tarih');
+  p2.textContent=product.ikinciParagraf;
+  container.append(p2);
+
+  const p3 = document.createElement('p');
+  p3.classList.add('tarih');
+  p3.textContent=product.ucuncuParagraf;
+  container.append(p3);
+
+  const span = document.createElement('span');
+  span.setAttribute('class','expandButton')
+  span.textContent='+'
+  span.addEventListener('click',function(){
+    container.classList.toggle('article-open');
+  })
+
+  return container;
+}
+
+console.log(haberYapici(data));
+
+
+const productContainer = document.querySelector('.articles');
+
+data.forEach((product)=>{
+  productContainer.append(haberYapici(product));
+});
+
+
+// function haberYapici(array) {
+//   let returnDomArray = [];
+//   returnDomArray = array.map((item) => {
+//     const division = document.createElement("div");
+//     division.className = "article";
+//     const heading = document.createElement("h2");
+//     heading.textContent = item.baslik;
+//     const date = document.createElement("p");
+//     date.className = "tarih";
+//     date.textContent = item.tarih;
+//     const firstParagraph = document.createElement("p");
+//     firstParagraph.textContent = item.ilkParagraf;
+//     const secondParagraph = document.createElement("p");
+//     secondParagraph.textContent = item.ikinciParagraf;
+//     const thirdParagraph = document.createElement("p");
+//     thirdParagraph.textContent = item.ucuncuParagraf;
+//     const spanButton = document.createElement("span");
+//     spanButton.classList.add("expandButton");
+//     spanButton.textContent = "+";
+
+//     spanButton.addEventListener("click", (event) => {
+//       let acikBolum = document.querySelector(".article-open");
+//       if (acikBolum == null) {
+//         event.target.parentElement.classList.add("article-open");
+//         event.target.textContent = "-";
+//       } else {
+//         if (event.target.parentElement.classList.contains("article-open")) {
+//           event.target.parentElement.classList.remove("article-open");
+//           event.target.textContent = "+";
+//         } else {
+//           acikBolum.classList.remove("article-open");
+//           acikBolum.querySelector("span").textContent = "+";
+//           event.target.parentElement.classList.add("article-open");
+//           event.target.textContent = "-";
+//         }
+//       }
+//     });
+
+//     division.appendChild(heading);
+//     division.appendChild(date);
+//     division.appendChild(firstParagraph);
+//     division.appendChild(secondParagraph);
+//     division.appendChild(thirdParagraph);
+//     division.appendChild(spanButton);
+//     return division;
+//   });
+//   return returnDomArray;
+// }
+
+// const articlesDivision = document.querySelector(".articles");
+// const newArray = haberYapici(data);
+// newArray.forEach((element) => {
+//   articlesDivision.appendChild(element);
+// });

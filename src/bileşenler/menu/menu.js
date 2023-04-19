@@ -34,3 +34,59 @@ let menuElemanlari = [
 
   Adım 6: 'menuYapici' fonksiyonunu ve 'menuElemanlari' dizisini kullanarak menüyü oluşturun, ve döndürülen menüyü header'e ekleyin.
 */
+
+/**
+ * 
+ * @param {*} product 
+ * @returns Container DOM Object
+ */
+
+
+const menuYapici = (product) => {
+  const container = document.createElement("div");
+  container.className = "menu";
+
+  const uList = document.createElement("ul");
+  container.append(uList);
+  
+  for(let i =0; i<product.length; i++){
+    const liList = document.createElement("li");
+    liList.textContent =product[i]
+    uList.append(liList);
+  }
+  
+  document.querySelector(".menu-button").addEventListener('click',function(){
+    container.classList.toggle("menu--open");
+  });
+  return container;
+};
+console.log(menuYapici(menuElemanlari));
+
+const productContainer = document.querySelector(".header");
+
+productContainer.append(menuYapici(menuElemanlari));
+
+
+
+
+
+// function menuYapici(array) {
+//   const menuDivision = document.createElement("div");
+//   menuDivision.className = "menu";
+//   const menuUl = document.createElement("ul");
+//   for (let i = 0; i < array.length; i++) {
+//     const menuLi = document.createElement("li");
+//     menuLi.textContent = array[i];
+//     menuUl.appendChild(menuLi);
+//   }
+//   menuDivision.appendChild(menuUl);
+//   const menuImg = document.querySelector(".menu-button");
+//   menuImg.addEventListener("click", (event) => {
+//     menuDivision.classList.toggle("menu--open");
+//   });
+//   return menuDivision;
+// }
+
+// const headerDivision = document.querySelector(".header");
+// const menuList = menuYapici(menuElemanlari);
+// headerDivision.appendChild(menuList);
