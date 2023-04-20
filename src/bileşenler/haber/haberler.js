@@ -147,8 +147,9 @@ const haberYapici = (product) => {
   container.append(p3);
 
   const span = document.createElement('span');
-  span.setAttribute('class','expandButton')
-  span.textContent='+'
+  span.setAttribute('class','expandButton');
+  span.textContent='+';
+  container.append(span);
   span.addEventListener('click',function(){
     container.classList.toggle('article-open');
   })
@@ -164,59 +165,3 @@ const productContainer = document.querySelector('.articles');
 data.forEach((product)=>{
   productContainer.append(haberYapici(product));
 });
-
-
-// function haberYapici(array) {
-//   let returnDomArray = [];
-//   returnDomArray = array.map((item) => {
-//     const division = document.createElement("div");
-//     division.className = "article";
-//     const heading = document.createElement("h2");
-//     heading.textContent = item.baslik;
-//     const date = document.createElement("p");
-//     date.className = "tarih";
-//     date.textContent = item.tarih;
-//     const firstParagraph = document.createElement("p");
-//     firstParagraph.textContent = item.ilkParagraf;
-//     const secondParagraph = document.createElement("p");
-//     secondParagraph.textContent = item.ikinciParagraf;
-//     const thirdParagraph = document.createElement("p");
-//     thirdParagraph.textContent = item.ucuncuParagraf;
-//     const spanButton = document.createElement("span");
-//     spanButton.classList.add("expandButton");
-//     spanButton.textContent = "+";
-
-//     spanButton.addEventListener("click", (event) => {
-//       let acikBolum = document.querySelector(".article-open");
-//       if (acikBolum == null) {
-//         event.target.parentElement.classList.add("article-open");
-//         event.target.textContent = "-";
-//       } else {
-//         if (event.target.parentElement.classList.contains("article-open")) {
-//           event.target.parentElement.classList.remove("article-open");
-//           event.target.textContent = "+";
-//         } else {
-//           acikBolum.classList.remove("article-open");
-//           acikBolum.querySelector("span").textContent = "+";
-//           event.target.parentElement.classList.add("article-open");
-//           event.target.textContent = "-";
-//         }
-//       }
-//     });
-
-//     division.appendChild(heading);
-//     division.appendChild(date);
-//     division.appendChild(firstParagraph);
-//     division.appendChild(secondParagraph);
-//     division.appendChild(thirdParagraph);
-//     division.appendChild(spanButton);
-//     return division;
-//   });
-//   return returnDomArray;
-// }
-
-// const articlesDivision = document.querySelector(".articles");
-// const newArray = haberYapici(data);
-// newArray.forEach((element) => {
-//   articlesDivision.appendChild(element);
-// });

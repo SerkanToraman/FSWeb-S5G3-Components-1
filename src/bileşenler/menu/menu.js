@@ -67,26 +67,3 @@ const productContainer = document.querySelector(".header");
 productContainer.append(menuYapici(menuElemanlari));
 
 
-
-
-
-// function menuYapici(array) {
-//   const menuDivision = document.createElement("div");
-//   menuDivision.className = "menu";
-//   const menuUl = document.createElement("ul");
-//   for (let i = 0; i < array.length; i++) {
-//     const menuLi = document.createElement("li");
-//     menuLi.textContent = array[i];
-//     menuUl.appendChild(menuLi);
-//   }
-//   menuDivision.appendChild(menuUl);
-//   const menuImg = document.querySelector(".menu-button");
-//   menuImg.addEventListener("click", (event) => {
-//     menuDivision.classList.toggle("menu--open");
-//   });
-//   return menuDivision;
-// }
-
-// const headerDivision = document.querySelector(".header");
-// const menuList = menuYapici(menuElemanlari);
-// headerDivision.appendChild(menuList);
